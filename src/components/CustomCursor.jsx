@@ -4,6 +4,7 @@ import { motion, useMotionValue, useSpring, AnimatePresence } from 'framer-motio
 const CustomCursor = () => {
   const [isPointerFine, setIsPointerFine] = useState(false);
   const [cursorState, setCursorState] = useState('default'); // 'default' | 'link' | 'view' | 'text'
+  const cursorStateRef = useRef('default');
 
   // Motion values for raw mouse coordinates (no re-renders)
   const mouseX = useMotionValue(-100);
@@ -26,7 +27,13 @@ const CustomCursor = () => {
   }, []);
 
   const lensRef = React.useRef(null);
-  const activeImgSrcRef = React.useRef('');
+
+  const updateState = (newState) => {
+    if (cursorStateRef.current !== newState) {
+      cursorStateRef.current = newState;
+      setCursorState(newState);
+    }
+  };
 
   useEffect(() => {
     if (!isPointerFine) {
@@ -44,7 +51,6 @@ const CustomCursor = () => {
         const cursorX = Math.max(0, Math.min(rect.width, e.clientX - rect.left));
         const cursorY = Math.max(0, Math.min(rect.height, e.clientY - rect.top));
 
-        activeImgSrcRef.current = src;
         if (lensRef.current) {
           lensRef.current.style.backgroundImage = `url("${src}")`;
           lensRef.current.style.backgroundSize = `${rect.width * 1.5}px ${rect.height * 1.5}px`;
@@ -57,7 +63,7 @@ const CustomCursor = () => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
 
-      if (cursorState === 'view') {
+      if (cursorStateRef.current === 'view') {
         const target = e.target.closest('img, [data-cursor="view"], .cursor-view');
         if (target) {
           updateLens(e, target);
@@ -69,13 +75,13 @@ const CustomCursor = () => {
       const target = e.target.closest('[data-cursor], a, button, [role="button"], input, textarea, select, img, .cursor-view');
       
       if (!target) {
-        if (cursorState !== 'default') setCursorState('default');
+        updateState('default');
         return;
       }
 
       const explicitDataCursor = target.getAttribute('data-cursor');
       if (explicitDataCursor) {
-        if (cursorState !== explicitDataCursor) setCursorState(explicitDataCursor);
+        updateState(explicitDataCursor);
         if (explicitDataCursor === 'view') {
           updateLens(e, target);
         }
@@ -84,20 +90,20 @@ const CustomCursor = () => {
 
       const tagName = target.tagName.toLowerCase();
       if (tagName === 'input' || tagName === 'textarea' || target.getAttribute('contenteditable')) {
-        if (cursorState !== 'text') setCursorState('text');
+        updateState('text');
       } else if (tagName === 'img' || target.classList.contains('cursor-view')) {
-        if (cursorState !== 'view') setCursorState('view');
+        updateState('view');
         updateLens(e, target);
       } else if (tagName === 'a' || tagName === 'button' || target.getAttribute('role') === 'button') {
-        if (cursorState !== 'link') setCursorState('link');
+        updateState('link');
       } else {
-        if (cursorState !== 'default') setCursorState('default');
+        updateState('default');
       }
     };
 
     const handleMouseOut = (e) => {
       if (!e.relatedTarget) {
-        setCursorState('default');
+        updateState('default');
       }
     };
 
@@ -111,7 +117,7 @@ const CustomCursor = () => {
       window.removeEventListener('mouseover', handleMouseOver);
       window.removeEventListener('mouseout', handleMouseOut);
     };
-  }, [isPointerFine, mouseX, mouseY, cursorState]);
+  }, [isPointerFine, mouseX, mouseY]);
 
   if (!isPointerFine) return null;
 
