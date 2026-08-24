@@ -147,7 +147,7 @@ const VideoHighlights = () => {
                 {isInView ? (
                   <video
                     src={`${video.src}#t=0.001`}
-                    preload="metadata"
+                    preload="none"
                     muted
                     playsInline
                     style={

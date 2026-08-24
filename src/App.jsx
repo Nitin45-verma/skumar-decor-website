@@ -3,9 +3,9 @@ import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import CustomCursor from './components/CustomCursor';
-import GhostCursor from './components/GhostCursor';
-import SplashCursor from './components/SplashCursor';
+// Desktop-only interactive cursors dynamic import
+const GhostCursor = lazy(() => import('./components/GhostCursor'));
+const SplashCursor = lazy(() => import('./components/SplashCursor'));
 
 // Below-the-fold components code-split for minimal initial bundle size
 const ScrollProgress = lazy(() => import('./components/ScrollProgress'));
@@ -58,7 +58,7 @@ function App() {
     <div className="min-h-screen bg-purple-950 text-slate-100 font-sans selection:bg-amber-400 selection:text-purple-950 relative overflow-x-hidden w-full max-w-full">
       {/* Desktop Only Interactive Cursors & WebGL Effects */}
       {isPointerFine && (
-        <>
+        <Suspense fallback={null}>
           <div className="fixed inset-0 pointer-events-none z-10">
             <GhostCursor
               color="#f5c451"
@@ -74,7 +74,6 @@ function App() {
               zIndex={10}
             />
           </div>
-          {/* <CustomCursor /> */}
           <SplashCursor
             SIM_RESOLUTION={64}
             DYE_RESOLUTION={512}
@@ -87,7 +86,7 @@ function App() {
             RAINBOW_MODE={true}
             COLOR="#f5c451"
           />
-        </>
+        </Suspense>
       )}
 
       <Suspense fallback={null}>

@@ -3,9 +3,10 @@ import { motion } from 'framer-motion';
 import { MapPin, Star, Phone, Image as ImageIcon } from 'lucide-react';
 import { businessInfo } from '../data/content';
 import MagneticButton from './MagneticButton';
-import MagicRings from './MagicRings';
-import Lightfall from './Lightfall';
 import logoImg from '../assets/logo.webp';
+
+const MagicRings = React.lazy(() => import('./MagicRings'));
+const Lightfall = React.lazy(() => import('./Lightfall'));
 
 // Floating sparkling light dots for magical ambient atmosphere
 const sparklingParticles = [
@@ -49,54 +50,59 @@ const Hero = () => {
           className="w-full h-full object-cover object-center scale-105 opacity-20 filter brightness-[0.35] contrast-125 pointer-events-none"
         />
 
-        {/* Animated Lightfall Falling Streaks Background Layer */}
-        <div className="absolute inset-0 opacity-75 mix-blend-screen pointer-events-none">
-          <Lightfall
-            colors={['#f5c451', '#e879f9', '#a855f7', '#fbbf24', '#ffd700']}
-            backgroundColor="#1a0b2e"
-            speed={0.7}
-            streakCount={isMobile ? 4 : 8}
-            streakWidth={1.2}
-            streakLength={1.2}
-            glow={1.2}
-            density={0.8}
-            twinkle={1}
-            zoom={2.2}
-            backgroundGlow={0.4}
-            opacity={0.85}
-            mouseInteraction={!isMobile}
-            mouseStrength={0.8}
-            mouseRadius={0.7}
-            mixBlendMode="screen"
-          />
-        </div>
+        {/* Desktop WebGL Shaders (Lazy loaded, non-blocking for LCP) */}
+        {!isMobile && (
+          <React.Suspense fallback={null}>
+            {/* Animated Lightfall Falling Streaks Background Layer */}
+            <div className="absolute inset-0 opacity-75 mix-blend-screen pointer-events-none">
+              <Lightfall
+                colors={['#f5c451', '#e879f9', '#a855f7', '#fbbf24', '#ffd700']}
+                backgroundColor="#1a0b2e"
+                speed={0.7}
+                streakCount={6}
+                streakWidth={1.2}
+                streakLength={1.2}
+                glow={1.2}
+                density={0.8}
+                twinkle={1}
+                zoom={2.2}
+                backgroundGlow={0.4}
+                opacity={0.85}
+                mouseInteraction={true}
+                mouseStrength={0.8}
+                mouseRadius={0.7}
+                mixBlendMode="screen"
+              />
+            </div>
 
-        {/* Animated Magic Rings Background Layer */}
-        <div className="absolute inset-0 opacity-85 mix-blend-screen pointer-events-none">
-          <MagicRings
-            color="#f5c451"
-            colorTwo="#a855f7"
-            ringCount={isMobile ? 4 : 6}
-            speed={0.8}
-            attenuation={8}
-            lineThickness={2.2}
-            baseRadius={0.28}
-            radiusStep={0.1}
-            scaleRate={0.12}
-            opacity={0.7}
-            blur={0}
-            noiseAmount={0.08}
-            rotation={15}
-            ringGap={1.5}
-            fadeIn={0.7}
-            fadeOut={0.5}
-            followMouse={!isMobile}
-            mouseInfluence={0.2}
-            hoverScale={1.15}
-            parallax={0.04}
-            clickBurst={true}
-          />
-        </div>
+            {/* Animated Magic Rings Background Layer */}
+            <div className="absolute inset-0 opacity-85 mix-blend-screen pointer-events-none">
+              <MagicRings
+                color="#f5c451"
+                colorTwo="#a855f7"
+                ringCount={5}
+                speed={0.8}
+                attenuation={8}
+                lineThickness={2.2}
+                baseRadius={0.28}
+                radiusStep={0.1}
+                scaleRate={0.12}
+                opacity={0.7}
+                blur={0}
+                noiseAmount={0.08}
+                rotation={15}
+                ringGap={1.5}
+                fadeIn={0.7}
+                fadeOut={0.5}
+                followMouse={true}
+                mouseInfluence={0.2}
+                hoverScale={1.15}
+                parallax={0.04}
+                clickBurst={true}
+              />
+            </div>
+          </React.Suspense>
+        )}
 
         {/* Radial Purple Glow Overlay */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(74,18,104,0.5)_0%,rgba(13,5,24,0.92)_85%)] pointer-events-none" />

@@ -15,6 +15,8 @@ export default defineConfig({
       output: {
         // Split heavy vendor libraries into separate chunks for optimal caching
         manualChunks(id) {
+          if (id.includes('node_modules/three')) return 'vendor-three';
+          if (id.includes('node_modules/ogl')) return 'vendor-ogl';
           if (id.includes('node_modules/framer-motion')) return 'vendor-framer';
           if (id.includes('node_modules/lucide-react')) return 'vendor-lucide';
           if (id.includes('node_modules/lenis')) return 'vendor-lenis';

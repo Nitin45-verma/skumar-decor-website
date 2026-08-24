@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Sparkles, Clock, Percent, Award, Trophy, Crown, Check } from 'lucide-react';
-import Waves from './Waves';
+const Waves = React.lazy(() => import('./Waves'));
 
 const whyUsCards = [
   {
@@ -49,24 +49,37 @@ const whyUsCards = [
 ];
 
 const WhyUs = () => {
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <section id="why-us" className="py-24 sm:py-32 bg-purple-950 text-slate-100 relative overflow-hidden bg-light-glow">
-      {/* Interactive Wave Animation Background */}
-      <div className="absolute inset-0 z-0 opacity-40 pointer-events-none">
-        <Waves
-          lineColor="rgba(245, 196, 81, 0.25)"
-          backgroundColor="transparent"
-          waveSpeedX={0.015}
-          waveSpeedY={0.008}
-          waveAmpX={36}
-          waveAmpY={18}
-          friction={0.925}
-          tension={0.005}
-          maxCursorMove={120}
-          xGap={14}
-          yGap={36}
-        />
-      </div>
+      {/* Interactive Wave Animation Background (Desktop only) */}
+      {!isMobile && (
+        <div className="absolute inset-0 z-0 opacity-40 pointer-events-none">
+          <React.Suspense fallback={null}>
+            <Waves
+              lineColor="rgba(245, 196, 81, 0.25)"
+              backgroundColor="transparent"
+              waveSpeedX={0.015}
+              waveSpeedY={0.008}
+              waveAmpX={36}
+              waveAmpY={18}
+              friction={0.925}
+              tension={0.005}
+              maxCursorMove={120}
+              xGap={14}
+              yGap={36}
+            />
+          </React.Suspense>
+        </div>
+      )}
 
       {/* Ambient background glows */}
       <div className="absolute top-1/3 left-10 w-[500px] h-[500px] bg-purple-800/20 rounded-full blur-[140px] pointer-events-none" />

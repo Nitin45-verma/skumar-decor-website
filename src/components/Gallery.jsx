@@ -6,7 +6,7 @@ import ScrollStack, { ScrollStackItem } from './ScrollStack';
 import './ScrollStack.css';
 import ImageReveal from './ImageReveal';
 import MagneticButton from './MagneticButton';
-import ImageTrail from './ImageTrail';
+const ImageTrail = React.lazy(() => import('./ImageTrail'));
 
 const Gallery = () => {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -370,11 +370,13 @@ const Gallery = () => {
 
             {/* Interactive Image Trail Canvas Area */}
             <div className="relative w-full h-[450px] sm:h-[550px] overflow-hidden cursor-crosshair">
-              <ImageTrail
-                key={`trail-${trailVariant}-${activeCategory}`}
-                items={filteredItems.map((item) => item.image)}
-                variant={trailVariant}
-              />
+              <React.Suspense fallback={null}>
+                <ImageTrail
+                  key={`trail-${trailVariant}-${activeCategory}`}
+                  items={filteredItems.map((item) => item.image)}
+                  variant={trailVariant}
+                />
+              </React.Suspense>
             </div>
           </motion.div>
         )}

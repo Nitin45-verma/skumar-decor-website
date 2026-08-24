@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { MapPin, CheckCircle2, Star } from 'lucide-react';
 import { businessInfo } from '../data/content';
-import Ballpit from './Ballpit';
+const Ballpit = React.lazy(() => import('./Ballpit'));
 
 const Counter = ({ target, suffix }) => {
   const [count, setCount] = useState(0);
@@ -48,22 +48,26 @@ const About = () => {
 
   return (
     <section id="about" className="py-24 sm:py-32 bg-purple-950 text-slate-100 relative overflow-hidden">
-      {/* Interactive 3D Ballpit Physics Layer */}
-      <div className="absolute inset-0 z-0 opacity-30 pointer-events-none lg:pointer-events-auto">
-        <Ballpit
-          count={isMobile ? 35 : 60}
-          gravity={0.4}
-          friction={0.992}
-          wallBounce={0.9}
-          followCursor={!isMobile}
-          colors={[0xf5c451, 0xa855f7, 0xfbbf24, 0xd946ef, 0xffd700]}
-          ambientColor={0xffffff}
-          ambientIntensity={1.2}
-          lightIntensity={250}
-          minSize={0.4}
-          maxSize={0.85}
-        />
-      </div>
+      {/* Interactive 3D Ballpit Physics Layer (Desktop only to maximize mobile Lighthouse score) */}
+      {!isMobile && (
+        <div className="absolute inset-0 z-0 opacity-30 pointer-events-none lg:pointer-events-auto">
+          <React.Suspense fallback={null}>
+            <Ballpit
+              count={50}
+              gravity={0.4}
+              friction={0.992}
+              wallBounce={0.9}
+              followCursor={true}
+              colors={[0xf5c451, 0xa855f7, 0xfbbf24, 0xd946ef, 0xffd700]}
+              ambientColor={0xffffff}
+              ambientIntensity={1.2}
+              lightIntensity={250}
+              minSize={0.4}
+              maxSize={0.85}
+            />
+          </React.Suspense>
+        </div>
+      )}
 
       {/* Ambient background glows */}
       <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-purple-800/20 rounded-full blur-[140px] pointer-events-none" />
