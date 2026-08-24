@@ -8,7 +8,6 @@ import GhostCursor from './components/GhostCursor';
 import SplashCursor from './components/SplashCursor';
 
 // Below-the-fold components code-split for minimal initial bundle size
-const SplashScreen = lazy(() => import('./components/SplashScreen'));
 const ScrollProgress = lazy(() => import('./components/ScrollProgress'));
 const About = lazy(() => import('./components/About'));
 const Services = lazy(() => import('./components/Services'));
@@ -93,7 +92,6 @@ function App() {
 
       <Suspense fallback={null}>
         <ScrollProgress />
-        <SplashScreen duration={950} />
       </Suspense>
 
       {/* Sticky Header Navbar & Hero */}

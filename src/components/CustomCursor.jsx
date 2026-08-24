@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { motion, useMotionValue, useSpring, AnimatePresence } from 'framer-motion';
 
 const CustomCursor = () => {
@@ -26,7 +26,7 @@ const CustomCursor = () => {
     return () => mediaQuery.removeEventListener('change', updatePointerFine);
   }, []);
 
-  const lensRef = React.useRef(null);
+  const lensRef = useRef(null);
 
   const updateState = (newState) => {
     if (cursorStateRef.current !== newState) {
