@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { Play, X, Loader2, Film, Phone, Volume2, VolumeX, Music } from 'lucide-react';
 import { businessInfo } from '../data/content';
-import TextReveal from './TextReveal';
 import MagneticButton from './MagneticButton';
 
 const videoHighlightsData = [

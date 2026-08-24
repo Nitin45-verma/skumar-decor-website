@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useInView } from 'framer-motion';
+import React, { useState, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Navigation, ExternalLink, Layers, Copy, Check, Minimize2, Maximize2, Compass } from 'lucide-react';
 import { businessInfo } from '../data/content';
 
@@ -8,28 +8,7 @@ const AnimatedMap = () => {
   const [copied, setCopied] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
-  const prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  const [stage, setStage] = useState(prefersReducedMotion ? 'map' : 'globe');
   const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, margin: "-100px" });
-
-  useEffect(() => {
-    if (prefersReducedMotion) {
-      setStage('map');
-      return;
-    }
-    if (!isInView) return;
-
-    setStage('globe');
-    const t1 = setTimeout(() => setStage('zooming'), 900);
-    const t2 = setTimeout(() => setStage('map'), 2400);
-
-    return () => {
-      clearTimeout(t1);
-      clearTimeout(t2);
-    };
-  }, [isInView, prefersReducedMotion]);
 
   const getIframeSrc = (mode) => {
     switch (mode) {

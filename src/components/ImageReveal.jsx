@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const ImageReveal = ({ src, alt, className = '', imgClassName = '', aspect = '', ...props }) => {
+const ImageReveal = ({ src, alt, className = '', imgClassName = '', ...props }) => {
   return (
     <motion.div
       initial={{ clipPath: 'inset(0 100% 0 0)', opacity: 0 }}
@@ -14,6 +14,8 @@ const ImageReveal = ({ src, alt, className = '', imgClassName = '', aspect = '',
       <img
         src={src}
         alt={alt}
+        loading="lazy"
+        decoding="async"
         className={`w-full h-full object-cover ${imgClassName}`}
       />
     </motion.div>
