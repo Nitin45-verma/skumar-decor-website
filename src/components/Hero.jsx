@@ -168,7 +168,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.55, duration: 0.6 }}
-          className="text-2xl sm:text-4xl md:text-5xl font-bold font-hindi text-white max-w-3xl mx-auto leading-snug tracking-wide drop-shadow-lg"
+          className="text-xl sm:text-3xl md:text-5xl font-bold font-hindi text-white max-w-3xl mx-auto leading-snug tracking-wide drop-shadow-lg break-words px-2"
         >
           "आपके हर खास मौके को बनाएं और भी खास, हमारी लाइटिंग से दें एक नई पहचान!"
         </motion.h1>
@@ -178,7 +178,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.65, duration: 0.6 }}
-          className="text-xs sm:text-sm md:text-base text-slate-300 font-sans italic max-w-2xl mx-auto font-light tracking-wide"
+          className="text-xs sm:text-sm md:text-base text-slate-300 font-sans italic max-w-2xl mx-auto font-light tracking-wide px-2"
         >
           "Make every special occasion even more special — give it a new identity with our lighting"
         </motion.p>
@@ -204,7 +204,7 @@ const Hero = () => {
         >
           <MagneticButton
             href={`tel:${businessInfo.phone}`}
-            className="shimmer-btn gap-2.5 px-8 py-4 rounded-full bg-gold-gradient text-purple-950 font-bold text-sm sm:text-base font-sans shadow-gold-glow hover:shadow-gold-glow-lg transition-all duration-300"
+            className="shimmer-btn gap-2.5 px-8 py-3.5 min-h-[44px] rounded-full bg-gold-gradient text-purple-950 font-bold text-sm sm:text-base font-sans shadow-gold-glow hover:shadow-gold-glow-lg transition-all duration-300"
             data-cursor="link"
           >
             <Phone className="w-4 h-4 fill-purple-950" />
@@ -213,7 +213,7 @@ const Hero = () => {
 
           <MagneticButton
             href="#gallery"
-            className="gap-2.5 px-8 py-4 rounded-full border border-amber-400/50 text-amber-300 bg-purple-950/80 hover:bg-amber-400/20 font-bold text-sm sm:text-base font-sans transition-all duration-300 hover:border-amber-400 hover:text-white shadow-md backdrop-blur-md"
+            className="gap-2.5 px-8 py-3.5 min-h-[44px] rounded-full border border-amber-400/50 text-amber-300 bg-purple-950/80 hover:bg-amber-400/20 font-bold text-sm sm:text-base font-sans transition-all duration-300 hover:border-amber-400 hover:text-white shadow-md backdrop-blur-md"
             data-cursor="link"
           >
             <ImageIcon className="w-4 h-4 text-amber-300" />

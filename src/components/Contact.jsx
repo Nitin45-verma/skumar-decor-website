@@ -279,7 +279,7 @@ const Contact = () => {
                             onChange={handleChange}
                             data-cursor="text"
                             placeholder="e.g. Nitin Verma"
-                            className="w-full pl-10 pr-4 py-3 rounded-xl bg-purple-950/90 border border-amber-500/30 text-white placeholder:text-slate-500 focus:outline-none focus:border-amber-400 transition-colors text-body-sm"
+                            className="w-full pl-10 pr-4 py-3 min-h-[44px] rounded-xl bg-purple-950/90 border border-amber-500/30 text-white placeholder:text-slate-500 focus:outline-none focus:border-amber-400 transition-colors text-body-sm scroll-mt-24"
                           />
                         </div>
                       </div>
@@ -299,7 +299,7 @@ const Contact = () => {
                             onChange={handleChange}
                             data-cursor="text"
                             placeholder="e.g. 9079689655"
-                            className="w-full pl-10 pr-4 py-3 rounded-xl bg-purple-950/90 border border-amber-500/30 text-white placeholder:text-slate-500 focus:outline-none focus:border-amber-400 transition-colors text-body-sm"
+                            className="w-full pl-10 pr-4 py-3 min-h-[44px] rounded-xl bg-purple-950/90 border border-amber-500/30 text-white placeholder:text-slate-500 focus:outline-none focus:border-amber-400 transition-colors text-body-sm scroll-mt-24"
                           />
                         </div>
                       </div>
@@ -318,7 +318,7 @@ const Contact = () => {
                           value={formData.eventDate}
                           onChange={handleChange}
                           data-cursor="text"
-                          className="w-full pl-10 pr-4 py-3 rounded-xl bg-purple-950/90 border border-amber-500/30 text-white focus:outline-none focus:border-amber-400 transition-colors text-body-sm"
+                          className="w-full pl-10 pr-4 py-3 min-h-[44px] rounded-xl bg-purple-950/90 border border-amber-500/30 text-white focus:outline-none focus:border-amber-400 transition-colors text-body-sm scroll-mt-24"
                         />
                       </div>
                     </div>
@@ -337,7 +337,7 @@ const Contact = () => {
                             type="button"
                             onClick={formData.selectedServices.length === serviceOptions.length ? handleClearServices : handleSelectAllServices}
                             data-cursor="link"
-                            className="text-label text-amber-300 hover:text-white hover:underline transition-colors font-medium cursor-pointer"
+                            className="text-label text-amber-300 hover:text-white hover:underline transition-colors font-medium cursor-pointer min-h-[32px] flex items-center"
                           >
                             {formData.selectedServices.length === serviceOptions.length ? 'Clear All' : 'Select All'}
                           </button>
@@ -356,7 +356,7 @@ const Contact = () => {
                               aria-label={`Service option: ${srv.label}`}
                               onClick={() => toggleService(srv.label)}
                               data-cursor="link"
-                              className={`flex items-center gap-2.5 px-3.5 py-3 rounded-xl border text-left text-body-sm font-medium transition-all cursor-pointer relative ${
+                              className={`flex items-center gap-2.5 px-3.5 py-3 min-h-[44px] rounded-xl border text-left text-body-sm font-medium transition-all cursor-pointer relative ${
                                 isSelected
                                   ? 'bg-amber-500/20 border-amber-400 text-amber-300 font-bold shadow-sm'
                                   : 'bg-purple-950/80 border-amber-500/20 text-slate-300 hover:border-amber-400/40'
@@ -394,7 +394,7 @@ const Contact = () => {
                           onChange={handleChange}
                           data-cursor="text"
                           placeholder="e.g. Need fairy lights canopy & flower mandap setup in Jaipur..."
-                          className="w-full pl-10 pr-4 py-3 rounded-xl bg-purple-950/90 border border-amber-500/30 text-white placeholder:text-slate-500 focus:outline-none focus:border-amber-400 transition-colors text-body-sm"
+                          className="w-full pl-10 pr-4 py-3 rounded-xl bg-purple-950/90 border border-amber-500/30 text-white placeholder:text-slate-500 focus:outline-none focus:border-amber-400 transition-colors text-body-sm scroll-mt-24"
                         />
                       </div>
                     </div>
@@ -403,7 +403,7 @@ const Contact = () => {
                     <MagneticButton
                       type="submit"
                       disabled={isSubmitting}
-                      className="shimmer-btn w-full gap-2 py-4 rounded-full bg-gold-gradient text-purple-950 font-bold text-body font-body shadow-gold-glow transition-all duration-300 disabled:opacity-50"
+                      className="shimmer-btn w-full gap-2 py-4 min-h-[44px] rounded-full bg-gold-gradient text-purple-950 font-bold text-body font-body shadow-gold-glow transition-all duration-300 disabled:opacity-50 flex items-center justify-center"
                       data-cursor="link"
                     >
                       {isSubmitting ? (

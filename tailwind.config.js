@@ -34,13 +34,13 @@ export default {
         hindi: ['Mukta', 'Noto Sans Devanagari', 'Noto Serif Devanagari', 'sans-serif'],
       },
       fontSize: {
-        'display-xl': ['clamp(3.5rem, 8vw, 7rem)', { lineHeight: '1.02', letterSpacing: '-0.02em' }],   // Hero main heading
-        'display-lg': ['clamp(2.75rem, 6vw, 5rem)', { lineHeight: '1.05', letterSpacing: '-0.02em' }],  // Section-level big statements
-        'h1': ['clamp(2.25rem, 4.5vw, 3.5rem)', { lineHeight: '1.1', letterSpacing: '-0.01em' }],        // Page/section H1
-        'h2': ['clamp(1.875rem, 3.5vw, 2.75rem)', { lineHeight: '1.15' }],                                // Section headings
-        'h3': ['clamp(1.5rem, 2.5vw, 2rem)', { lineHeight: '1.2' }],                                      // Card titles, subsection heads
-        'h4': ['clamp(1.25rem, 2vw, 1.5rem)', { lineHeight: '1.25' }],                                    // Small headings
-        'body-lg': ['clamp(1.125rem, 1.5vw, 1.25rem)', { lineHeight: '1.6' }],                            // Lead paragraphs
+        'display-xl': ['clamp(2.15rem, 7vw, 6rem)', { lineHeight: '1.02', letterSpacing: '-0.02em' }],   // Hero main heading
+        'display-lg': ['clamp(1.85rem, 5.5vw, 4.5rem)', { lineHeight: '1.05', letterSpacing: '-0.02em' }],  // Section-level big statements
+        'h1': ['clamp(1.75rem, 4vw, 3.25rem)', { lineHeight: '1.1', letterSpacing: '-0.01em' }],        // Page/section H1
+        'h2': ['clamp(1.5rem, 3.5vw, 2.5rem)', { lineHeight: '1.15' }],                                // Section headings
+        'h3': ['clamp(1.25rem, 2.5vw, 1.85rem)', { lineHeight: '1.2' }],                                      // Card titles, subsection heads
+        'h4': ['clamp(1.1rem, 2vw, 1.35rem)', { lineHeight: '1.25' }],                                    // Small headings
+        'body-lg': ['clamp(1rem, 1.5vw, 1.25rem)', { lineHeight: '1.6' }],                            // Lead paragraphs
         'body': ['1rem', { lineHeight: '1.65' }],                                                          // Default body text
         'body-sm': ['0.875rem', { lineHeight: '1.5' }],                                                    // Secondary/caption text
         'label': ['0.75rem', { lineHeight: '1.4', letterSpacing: '0.08em' }],                             // Uppercase labels/eyebrows

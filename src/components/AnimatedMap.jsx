@@ -86,7 +86,7 @@ const AnimatedMap = () => {
               <button
                 type="button"
                 onClick={() => setMapMode('roadmap')}
-                className={`px-3.5 py-1.5 rounded-lg font-semibold transition-colors cursor-pointer ${
+                className={`px-3.5 py-2 min-h-[44px] rounded-lg font-semibold transition-colors cursor-pointer flex items-center justify-center ${
                   mapMode === 'roadmap'
                     ? 'bg-gold-gradient text-purple-950 font-bold shadow-sm'
                     : 'text-slate-300 hover:text-amber-300'
@@ -99,7 +99,7 @@ const AnimatedMap = () => {
               <button
                 type="button"
                 onClick={() => setMapMode('satellite')}
-                className={`px-3.5 py-1.5 rounded-lg font-semibold transition-colors cursor-pointer ${
+                className={`px-3.5 py-2 min-h-[44px] rounded-lg font-semibold transition-colors cursor-pointer flex items-center justify-center ${
                   mapMode === 'satellite'
                     ? 'bg-gold-gradient text-purple-950 font-bold shadow-sm'
                     : 'text-slate-300 hover:text-amber-300'
@@ -113,7 +113,7 @@ const AnimatedMap = () => {
             <button
               type="button"
               onClick={() => setIsFullscreen(true)}
-              className="p-2.5 rounded-xl glass-panel border border-amber-400/30 text-slate-200 hover:text-amber-300 transition-colors cursor-pointer"
+              className="w-11 h-11 rounded-xl glass-panel border border-amber-400/30 text-slate-200 hover:text-amber-300 transition-colors cursor-pointer flex items-center justify-center min-w-[44px] min-h-[44px]"
               title="Expand Fullscreen Map"
             >
               <Maximize2 className="w-4 h-4 text-amber-300" />
@@ -123,7 +123,7 @@ const AnimatedMap = () => {
 
         <div
           ref={containerRef}
-          className="relative w-full h-[350px] md:h-[450px] overflow-hidden bg-purple-950"
+          className="relative w-full h-[350px] md:h-[450px] overflow-hidden bg-purple-950 aspect-video md:aspect-auto"
         >
           <iframe
             key={mapMode}
@@ -141,7 +141,7 @@ const AnimatedMap = () => {
               href={businessInfo.googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="shimmer-btn px-5 py-2.5 rounded-full border border-amber-400/40 text-purple-950 bg-gold-gradient font-bold text-xs shadow-gold-glow flex items-center gap-2 transition-all hover:scale-105"
+              className="shimmer-btn px-5 py-3 min-h-[44px] rounded-full border border-amber-400/40 text-purple-950 bg-gold-gradient font-bold text-xs shadow-gold-glow flex items-center gap-2 transition-all hover:scale-105"
             >
               <Navigation className="w-4 h-4 fill-purple-950" />
               <span>Get Directions</span>
@@ -150,7 +150,7 @@ const AnimatedMap = () => {
 
             <button
               onClick={handleCopyAddress}
-              className="px-4 py-2.5 rounded-full bg-purple-950/90 backdrop-blur-md border border-amber-400/40 text-slate-200 hover:text-amber-300 text-xs font-semibold flex items-center gap-2 shadow-md transition-all cursor-pointer"
+              className="px-4 py-3 min-h-[44px] rounded-full bg-purple-950/90 backdrop-blur-md border border-amber-400/40 text-slate-200 hover:text-amber-300 text-xs font-semibold flex items-center gap-2 shadow-md transition-all cursor-pointer"
             >
               {copied ? (
                 <>

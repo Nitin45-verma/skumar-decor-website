@@ -81,12 +81,12 @@ const DigitalWeddingCard = () => {
           </p>
 
           {/* Card Style Toggle */}
-          <div className="pt-3 flex items-center justify-center gap-3 text-xs font-sans">
+          <div className="pt-3 flex flex-wrap items-center justify-center gap-3 text-xs font-sans">
             <button
               type="button"
               onClick={() => setCardStyle('phone')}
               data-cursor="link"
-              className={`px-5 py-2 rounded-full font-bold transition-all cursor-pointer ${
+              className={`px-5 py-2.5 min-h-[44px] rounded-full font-bold transition-all cursor-pointer flex items-center justify-center ${
                 cardStyle === 'phone'
                   ? 'bg-gold-gradient text-purple-950 shadow-gold-glow scale-105'
                   : 'bg-purple-900/60 border border-amber-500/30 text-slate-200 hover:text-amber-300'
@@ -98,7 +98,7 @@ const DigitalWeddingCard = () => {
               type="button"
               onClick={() => setCardStyle('reflective')}
               data-cursor="link"
-              className={`px-5 py-2 rounded-full font-bold transition-all cursor-pointer ${
+              className={`px-5 py-2.5 min-h-[44px] rounded-full font-bold transition-all cursor-pointer flex items-center justify-center ${
                 cardStyle === 'reflective'
                   ? 'bg-gold-gradient text-purple-950 shadow-gold-glow scale-105'
                   : 'bg-purple-900/60 border border-amber-500/30 text-slate-200 hover:text-amber-300'

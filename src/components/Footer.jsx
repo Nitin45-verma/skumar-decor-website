@@ -5,7 +5,7 @@ import Logo from './Logo';
 
 const Footer = () => {
   return (
-    <footer className="bg-purple-950 text-slate-200 border-t border-amber-500/20 relative overflow-hidden pt-16 pb-24 md:pb-12 text-left">
+    <footer className="bg-purple-950 text-slate-200 border-t border-amber-500/20 relative overflow-hidden pt-16 pb-[max(6.5rem,calc(5.5rem+env(safe-area-inset-bottom)))] md:pb-12 text-left">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-12 border-b border-amber-500/20">
 
@@ -27,7 +27,7 @@ const Footer = () => {
             <h4 className="text-h4 font-bold font-display text-amber-300 uppercase tracking-widest mb-4">
               Quick Navigation
             </h4>
-            <ul className="space-y-2 text-body-sm font-body font-medium">
+            <ul className="space-y-1 text-body-sm font-body font-medium">
               {[
                 { name: 'Home', href: '#hero' },
                 { name: 'About S.Kumar', href: '#about' },
@@ -42,7 +42,7 @@ const Footer = () => {
                   <a
                     href={link.href}
                     data-cursor="link"
-                    className="hover:text-amber-300 transition-colors flex items-center gap-1.5 text-slate-300"
+                    className="hover:text-amber-300 transition-colors flex items-center gap-1.5 py-2.5 min-h-[44px] text-slate-300"
                   >
                     <ChevronRight className="w-3.5 h-3.5 text-amber-400/70" />
                     <span>{link.name}</span>

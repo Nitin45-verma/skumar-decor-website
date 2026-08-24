@@ -15,6 +15,17 @@ const Gallery = () => {
   const [trailVariant, setTrailVariant] = useState(1);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
+  React.useEffect(() => {
+    if (selectedImage) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [selectedImage]);
+
   const uniqueItems = Array.from(
     new Map(galleryItems.map(item => [item.image, item])).values()
   );
@@ -67,7 +78,7 @@ const Gallery = () => {
               data-cursor="link"
               aria-haspopup="listbox"
               aria-expanded={dropdownOpen}
-              className="w-full flex items-center justify-between px-5 py-3 rounded-2xl bg-purple-900/80 border border-amber-400/40 text-amber-300 font-bold text-sm font-sans shadow-md cursor-pointer"
+              className="w-full flex items-center justify-between px-5 py-3 min-h-[44px] rounded-2xl bg-purple-900/80 border border-amber-400/40 text-amber-300 font-bold text-sm font-sans shadow-md cursor-pointer"
             >
               <span>📂 {activeCategory}</span>
               <ChevronDown
@@ -98,7 +109,7 @@ const Gallery = () => {
                           setActiveCategory(category);
                           setDropdownOpen(false);
                         }}
-                        className={`flex items-center justify-between px-5 py-3.5 cursor-pointer text-sm font-bold font-sans transition-colors ${
+                        className={`flex items-center justify-between px-5 py-3.5 min-h-[44px] cursor-pointer text-sm font-bold font-sans transition-colors ${
                           isActive
                             ? 'bg-amber-500/20 text-amber-300'
                             : 'text-slate-200 hover:bg-purple-900 hover:text-amber-300'
@@ -127,7 +138,7 @@ const Gallery = () => {
                   aria-label={`Filter gallery by ${category}`}
                   onClick={() => setActiveCategory(category)}
                   data-cursor="link"
-                  className={`px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold font-sans transition-all duration-300 whitespace-nowrap cursor-pointer ${
+                  className={`px-6 py-2.5 min-h-[44px] rounded-full text-xs sm:text-sm font-bold font-sans transition-all duration-300 whitespace-nowrap cursor-pointer flex items-center justify-center ${
                     isActive
                       ? 'bg-gold-gradient text-purple-950 shadow-gold-glow scale-105'
                       : 'bg-purple-900/60 border border-amber-500/30 text-slate-200 hover:text-amber-300 hover:border-amber-400/60'
@@ -145,7 +156,7 @@ const Gallery = () => {
               type="button"
               onClick={() => setViewMode('grid')}
               data-cursor="link"
-              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl font-semibold transition-all cursor-pointer ${
+              className={`flex items-center gap-1.5 px-3.5 py-2.5 min-h-[44px] rounded-xl font-semibold transition-all cursor-pointer ${
                 viewMode === 'grid'
                   ? 'border border-amber-400/50 bg-amber-500/20 text-amber-300 shadow-sm'
                   : 'glass-panel text-slate-400 hover:text-white'
@@ -159,7 +170,7 @@ const Gallery = () => {
               type="button"
               onClick={() => setViewMode('stack')}
               data-cursor="link"
-              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl font-semibold transition-all cursor-pointer ${
+              className={`flex items-center gap-1.5 px-3.5 py-2.5 min-h-[44px] rounded-xl font-semibold transition-all cursor-pointer ${
                 viewMode === 'stack'
                   ? 'border border-amber-400/50 bg-amber-500/20 text-amber-300 shadow-sm'
                   : 'glass-panel text-slate-400 hover:text-white'
@@ -173,7 +184,7 @@ const Gallery = () => {
               type="button"
               onClick={() => setViewMode('trail')}
               data-cursor="link"
-              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl font-semibold transition-all cursor-pointer ${
+              className={`flex items-center gap-1.5 px-3.5 py-2.5 min-h-[44px] rounded-xl font-semibold transition-all cursor-pointer ${
                 viewMode === 'trail'
                   ? 'border border-amber-400/50 bg-amber-500/20 text-amber-300 shadow-sm'
                   : 'glass-panel text-slate-400 hover:text-white'

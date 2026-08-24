@@ -56,7 +56,7 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-purple-950 text-slate-100 font-sans selection:bg-amber-400 selection:text-purple-950 relative">
+    <div className="min-h-screen bg-purple-950 text-slate-100 font-sans selection:bg-amber-400 selection:text-purple-950 relative overflow-x-hidden w-full max-w-full">
       {/* Desktop Only Interactive Cursors & WebGL Effects */}
       {isPointerFine && (
         <>

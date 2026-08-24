@@ -88,7 +88,7 @@ const Testimonials = () => {
             type="button"
             onClick={handlePrev}
             data-cursor="link"
-            className="p-3 rounded-full glass-panel border border-amber-400/30 text-slate-300 hover:text-amber-300 hover:border-amber-400 transition-all cursor-pointer"
+            className="p-3 w-11 h-11 min-w-[44px] min-h-[44px] rounded-full glass-panel border border-amber-400/30 text-slate-300 hover:text-amber-300 hover:border-amber-400 transition-all cursor-pointer flex items-center justify-center"
             aria-label="Previous review"
           >
             <ChevronLeft className="w-5 h-5" />
@@ -103,11 +103,15 @@ const Testimonials = () => {
                 aria-selected={currentIndex === idx}
                 onClick={() => setCurrentIndex(idx)}
                 data-cursor="link"
-                className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-                  currentIndex === idx ? 'w-8 bg-gold-gradient shadow-gold-glow' : 'w-2.5 bg-amber-500/30 hover:bg-amber-300'
-                }`}
+                className={`py-3 flex items-center min-h-[44px] cursor-pointer`}
                 aria-label={`Go to slide ${idx + 1}`}
-              />
+              >
+                <span
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
+                    currentIndex === idx ? 'w-8 bg-gold-gradient shadow-gold-glow' : 'w-2.5 bg-amber-500/30 hover:bg-amber-300'
+                  }`}
+                />
+              </button>
             ))}
           </div>
 
@@ -115,7 +119,7 @@ const Testimonials = () => {
             type="button"
             onClick={handleNext}
             data-cursor="link"
-            className="p-3 rounded-full glass-panel border border-amber-400/30 text-slate-300 hover:text-amber-300 hover:border-amber-400 transition-all cursor-pointer"
+            className="p-3 w-11 h-11 min-w-[44px] min-h-[44px] rounded-full glass-panel border border-amber-400/30 text-slate-300 hover:text-amber-300 hover:border-amber-400 transition-all cursor-pointer flex items-center justify-center"
             aria-label="Next review"
           >
             <ChevronRight className="w-5 h-5" />

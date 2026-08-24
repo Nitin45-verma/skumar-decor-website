@@ -115,14 +115,14 @@ const Navbar = () => {
         <div className="flex lg:hidden items-center gap-2.5 shrink-0">
           <a
             href={`tel:${businessInfo.phone}`}
-            className="p-2 rounded-full border border-amber-400/40 text-amber-300 bg-amber-500/15 active:scale-95 shadow-sm"
+            className="w-11 h-11 rounded-full border border-amber-400/40 text-amber-300 bg-amber-500/15 active:scale-95 shadow-sm flex items-center justify-center min-w-[44px] min-h-[44px]"
             aria-label={`Call S.Kumar Light and Flower Decoration at ${businessInfo.phone}`}
           >
-            <Phone className="w-4 h-4 text-amber-300" />
+            <Phone className="w-5 h-5 text-amber-300" />
           </a>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-lg text-slate-200 hover:text-amber-300 focus:outline-none border border-amber-500/30 bg-purple-900/80 shadow-sm cursor-pointer"
+            className="w-11 h-11 rounded-lg text-slate-200 hover:text-amber-300 focus:outline-none border border-amber-500/30 bg-purple-900/80 shadow-sm cursor-pointer flex items-center justify-center min-w-[44px] min-h-[44px]"
             aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={mobileMenuOpen}
           >
@@ -149,6 +149,7 @@ const Navbar = () => {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 220 }}
+              style={{ willChange: 'transform' }}
               className="fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-purple-950/98 backdrop-blur-2xl border-l border-amber-500/30 z-50 flex flex-col justify-between p-6 shadow-2xl lg:hidden overflow-y-auto"
             >
               <div>
@@ -156,7 +157,8 @@ const Navbar = () => {
                   <Logo size="small" showText={true} />
                   <button
                     onClick={() => setMobileMenuOpen(false)}
-                    className="p-2 rounded-full text-slate-300 hover:text-amber-300 bg-purple-900 border border-amber-500/30 cursor-pointer"
+                    className="w-11 h-11 rounded-full text-slate-300 hover:text-amber-300 bg-purple-900 border border-amber-500/30 cursor-pointer flex items-center justify-center min-w-[44px] min-h-[44px]"
+                    aria-label="Close navigation menu"
                   >
                     <X className="w-5 h-5 text-amber-300" />
                   </button>
@@ -171,7 +173,7 @@ const Navbar = () => {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: idx * 0.04 }}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="flex items-center justify-between px-4 py-3 rounded-xl hover:bg-purple-900/60 text-slate-200 hover:text-amber-300 border border-transparent hover:border-amber-500/25 transition-all text-xs font-bold uppercase tracking-wider"
+                      className="flex items-center justify-between px-4 py-3 min-h-[44px] rounded-xl hover:bg-purple-900/60 text-slate-200 hover:text-amber-300 border border-transparent hover:border-amber-500/25 transition-all text-xs font-bold uppercase tracking-wider"
                     >
                       <span>{link.name}</span>
                       <ChevronRight className="w-4 h-4 text-amber-400/60" />
@@ -180,14 +182,14 @@ const Navbar = () => {
                 </nav>
               </div>
 
-              <div className="pt-6 border-t border-amber-500/20 space-y-3 font-sans">
+              <div className="pt-6 border-t border-amber-500/20 space-y-3 font-sans pb-[max(1rem,env(safe-area-inset-bottom))]">
                 <p className="text-xs text-amber-200/80 font-hindi text-center italic">
                   "{businessInfo.taglineHindi}"
                 </p>
                 <a
                   href={`tel:${businessInfo.phone}`}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-gold-gradient text-purple-950 font-bold text-xs shadow-gold-glow transition-all active:scale-95"
+                  className="w-full flex items-center justify-center gap-2 py-3.5 min-h-[44px] rounded-xl bg-gold-gradient text-purple-950 font-bold text-xs shadow-gold-glow transition-all active:scale-95"
                 >
                   <Phone className="w-4 h-4 fill-purple-950" />
                   <span>Call Now: {businessInfo.phone}</span>

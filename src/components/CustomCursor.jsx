@@ -115,11 +115,10 @@ const CustomCursor = () => {
 
   if (!isPointerFine) return null;
 
-  // Ring/Box variants based on state
+  // Ring/Box variants based on GPU transform scale (fixed 80x80 container base)
   const ringVariants = {
     default: {
-      width: 36,
-      height: 36,
+      scale: 0.45,
       borderRadius: '50%',
       backgroundColor: 'rgba(212, 175, 55, 0)',
       borderColor: 'rgba(212, 175, 55, 0.8)',
@@ -127,8 +126,7 @@ const CustomCursor = () => {
       opacity: 1,
     },
     link: {
-      width: 56,
-      height: 56,
+      scale: 0.7,
       borderRadius: '50%',
       backgroundColor: 'rgba(212, 175, 55, 0.18)',
       borderColor: 'rgba(245, 196, 81, 0.9)',
@@ -136,18 +134,17 @@ const CustomCursor = () => {
       opacity: 1,
     },
     view: {
-      width: 80,
-      height: 80,
-      borderRadius: '8px', // Square box matching exact screenshot!
+      scale: 1,
+      borderRadius: '8px',
       backgroundColor: 'rgba(13, 5, 24, 0.7)',
       borderColor: 'rgba(245, 196, 81, 0.95)',
       borderWidth: '1.5px',
       opacity: 1,
     },
     text: {
-      width: 2,
-      height: 24,
-      borderRadius: 1,
+      scaleX: 0.025,
+      scaleY: 0.3,
+      borderRadius: '1px',
       backgroundColor: '#f5c451',
       borderColor: 'rgba(245, 196, 81, 0)',
       borderWidth: '0px',
@@ -178,7 +175,7 @@ const CustomCursor = () => {
 
       {/* Layer 2: Elastic smooth trailing ring/square lens box */}
       <motion.div
-        className="fixed top-0 left-0 flex items-center justify-center pointer-events-none shadow-gold-glow border overflow-hidden"
+        className="fixed top-0 left-0 w-[80px] h-[80px] flex items-center justify-center pointer-events-none shadow-gold-glow border overflow-hidden"
         style={{
           x: ringX,
           y: ringY,

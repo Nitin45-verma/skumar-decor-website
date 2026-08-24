@@ -126,8 +126,8 @@ const VideoHighlights = () => {
           </p>
         </div>
 
-        {/* Responsive Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+        {/* Responsive Grid - 1 column below 768px (md:), 2 columns 768-1024px, 4 columns above 1024px */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
           {videoHighlightsData.map((video, idx) => (
             <motion.div
               key={video.id}

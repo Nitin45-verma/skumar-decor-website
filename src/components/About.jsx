@@ -37,16 +37,25 @@ const Counter = ({ target, suffix }) => {
 };
 
 const About = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <section id="about" className="py-24 sm:py-32 bg-purple-950 text-slate-100 relative overflow-hidden">
       {/* Interactive 3D Ballpit Physics Layer */}
       <div className="absolute inset-0 z-0 opacity-30 pointer-events-none lg:pointer-events-auto">
         <Ballpit
-          count={100}
+          count={isMobile ? 35 : 60}
           gravity={0.4}
           friction={0.992}
           wallBounce={0.9}
-          followCursor={true}
+          followCursor={!isMobile}
           colors={[0xf5c451, 0xa855f7, 0xfbbf24, 0xd946ef, 0xffd700]}
           ambientColor={0xffffff}
           ambientIntensity={1.2}

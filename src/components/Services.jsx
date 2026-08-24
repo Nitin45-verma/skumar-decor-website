@@ -41,7 +41,7 @@ const Services = () => {
         </div>
 
         {/* 6 Services Responsive Grid matching screenshot */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 text-left">
           {services.map((service, index) => {
             const IconComponent = iconMap[service.iconName] || Sparkles;
 
@@ -59,10 +59,14 @@ const Services = () => {
               >
                 <div>
                   {/* Top Image Box */}
-                  <div className="relative h-64 w-full overflow-hidden bg-purple-900 border-b border-amber-500/20">
+                  <div className="relative h-64 w-full overflow-hidden bg-purple-900 border-b border-amber-500/20 aspect-[4/3]">
                     <img
                       src={service.image}
                       alt={`${service.title} - S.Kumar Light Decoration Khatipura Jaipur`}
+                      width={600}
+                      height={400}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-64 object-cover group-hover:scale-[1.06] transition-transform duration-700 brightness-95 group-hover:brightness-100"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-purple-950 via-purple-950/20 to-transparent opacity-80" />
@@ -109,7 +113,7 @@ const Services = () => {
                 <div className="p-6 pt-0 relative z-10">
                   <MagneticButton
                     href={`tel:${businessInfo.phone}`}
-                    className="shimmer-btn w-full gap-2 py-3 rounded-xl border border-amber-400/40 text-amber-300 bg-amber-500/15 hover:bg-amber-400 hover:text-purple-950 font-bold text-xs sm:text-sm font-sans shadow-md"
+                    className="shimmer-btn w-full gap-2 py-3 min-h-[44px] rounded-xl border border-amber-400/40 text-amber-300 bg-amber-500/15 hover:bg-amber-400 hover:text-purple-950 font-bold text-xs sm:text-sm font-sans shadow-md flex items-center justify-center"
                     data-cursor="link"
                   >
                     <span>Book {service.title}</span>
