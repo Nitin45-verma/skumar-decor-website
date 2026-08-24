@@ -40,10 +40,10 @@ const Hero = () => {
       {/* Background Illumination Silhouette with Scrim */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img
-          src={businessInfo.heroBgImage}
+          src="/hero_bg.webp"
           alt="S.Kumar Light and Flower Decoration Background"
-          width={1920}
-          height={1080}
+          width={1200}
+          height={675}
           loading="eager"
           fetchPriority="high"
           decoding="sync"
@@ -146,12 +146,13 @@ const Hero = () => {
           className="py-2 flex justify-center"
         >
           <img
-            src={logoImg}
+            src="/logo.webp"
             alt="S.KUMAR Light and Flower Decoration Grand Royal Logo"
             width={440}
             height={200}
             loading="eager"
-            decoding="async"
+            fetchPriority="high"
+            decoding="sync"
             className="w-[280px] sm:w-[360px] md:w-[440px] max-w-full h-auto object-contain drop-shadow-[0_12px_30px_rgba(212,175,55,0.45)] hover:scale-[1.02] transition-transform duration-500 cursor-pointer"
             data-cursor="view"
           />

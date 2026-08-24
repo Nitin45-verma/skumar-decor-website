@@ -22,27 +22,48 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30);
+    let ticking = false;
+    let cachedOffsets = [];
 
+    const updateSectionOffsets = () => {
       const sections = navLinks.map(link => link.href.substring(1));
-      const scrollPos = window.scrollY + 200;
-
-      for (const section of sections) {
-        const el = document.getElementById(section);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPos >= top && scrollPos < top + height) {
-            setActiveSection(section);
-            break;
+      cachedOffsets = sections
+        .map(section => {
+          const el = document.getElementById(section);
+          if (el) {
+            return { id: section, top: el.offsetTop, height: el.offsetHeight };
           }
-        }
+          return null;
+        })
+        .filter(Boolean);
+    };
+
+    updateSectionOffsets();
+    window.addEventListener('resize', updateSectionOffsets);
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 30);
+
+          const scrollPos = window.scrollY + 200;
+          for (const sec of cachedOffsets) {
+            if (scrollPos >= sec.top && scrollPos < sec.top + sec.height) {
+              setActiveSection(sec.id);
+              break;
+            }
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', updateSectionOffsets);
+    };
   }, []);
 
   useEffect(() => {

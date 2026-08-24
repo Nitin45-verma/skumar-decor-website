@@ -41,21 +41,21 @@ const ScrollStack = ({
     isUpdatingRef.current = true;
 
     if (useWindowScroll) {
-      // 100% Jitter-Free Native Sticky Stacking with Pronounced 3D Depth Animation
+      // 1. Batch all DOM reads in a single pass to eliminate forced reflows
+      const rects = cardsRef.current.map(card => (card ? card.getBoundingClientRect() : null));
+
+      // 2. Compute and apply styles in a separate pass
       cardsRef.current.forEach((card, i) => {
-        if (!card) return;
+        if (!card || !rects[i]) return;
 
         let overlapFactor = 0;
-        if (i < cardsRef.current.length - 1) {
-          const nextCard = cardsRef.current[i + 1];
-          if (nextCard) {
-            const cardRect = card.getBoundingClientRect();
-            const nextRect = nextCard.getBoundingClientRect();
-            const totalHeight = cardRect.height || 550;
-            const overlap = cardRect.bottom - nextRect.top;
-            if (overlap > 0) {
-              overlapFactor = Math.min(1, Math.max(0, overlap / (totalHeight * 0.8)));
-            }
+        if (i < cardsRef.current.length - 1 && rects[i + 1]) {
+          const cardRect = rects[i];
+          const nextRect = rects[i + 1];
+          const totalHeight = cardRect.height || 550;
+          const overlap = cardRect.bottom - nextRect.top;
+          if (overlap > 0) {
+            overlapFactor = Math.min(1, Math.max(0, overlap / (totalHeight * 0.8)));
           }
         }
 
@@ -85,7 +85,7 @@ const ScrollStack = ({
         }
 
         if (i === cardsRef.current.length - 1) {
-          const cardRect = card.getBoundingClientRect();
+          const cardRect = rects[i];
           const isInView = cardRect.top <= 120;
           if (isInView && !stackCompletedRef.current) {
             stackCompletedRef.current = true;
