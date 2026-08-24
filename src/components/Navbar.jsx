@@ -82,13 +82,13 @@ const Navbar = () => {
           : 'bg-purple-950/75 backdrop-blur-md border-amber-500/20'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 w-full flex items-center justify-between gap-2 sm:gap-4 overflow-hidden">
         
         {/* Brand Logo (Left) */}
         <a
           href="#hero"
           aria-label="S.KUMAR Light & Flower Decoration Home"
-          className="flex items-center cursor-pointer shrink-0"
+          className="flex items-center cursor-pointer shrink-0 min-w-0"
           data-cursor="link"
         >
           <Logo size="normal" showText={true} />
@@ -133,21 +133,21 @@ const Navbar = () => {
         </div>
 
         {/* Mobile / Tablet Hamburger & Call Button */}
-        <div className="flex lg:hidden items-center gap-2.5 shrink-0">
+        <div className="flex lg:hidden items-center gap-2 shrink-0">
           <a
             href={`tel:${businessInfo.phone}`}
-            className="w-11 h-11 rounded-full border border-amber-400/40 text-amber-300 bg-amber-500/15 active:scale-95 shadow-sm flex items-center justify-center min-w-[44px] min-h-[44px]"
+            className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-amber-400/40 text-amber-300 bg-amber-500/15 active:scale-95 shadow-sm flex items-center justify-center shrink-0"
             aria-label={`Call S.Kumar Light and Flower Decoration at ${businessInfo.phone}`}
           >
-            <Phone className="w-5 h-5 text-amber-300" />
+            <Phone className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-amber-300" />
           </a>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="w-11 h-11 rounded-lg text-slate-200 hover:text-amber-300 focus:outline-none border border-amber-500/30 bg-purple-900/80 shadow-sm cursor-pointer flex items-center justify-center min-w-[44px] min-h-[44px]"
+            className="w-10 h-10 sm:w-11 sm:h-11 rounded-lg text-slate-200 hover:text-amber-300 focus:outline-none border border-amber-500/30 bg-purple-900/80 shadow-sm cursor-pointer flex items-center justify-center shrink-0"
             aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={mobileMenuOpen}
           >
-            {mobileMenuOpen ? <X className="w-6 h-6 text-amber-300" /> : <Menu className="w-6 h-6 text-amber-300" />}
+            {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6 text-amber-300" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6 text-amber-300" />}
           </button>
         </div>
 

@@ -13,7 +13,7 @@ const Logo = ({ className = "", size = "normal", showText = false }) => {
   const currentSize = sizeClasses[size] || sizeClasses.normal;
 
   return (
-    <div className={`inline-flex items-center gap-3 group select-none ${className}`}>
+    <div className={`inline-flex items-center gap-2.5 group select-none shrink-0 ${className}`}>
       <img
         src={logoImg}
         alt="S.KUMAR Light and Flower Decoration Logo"
@@ -24,11 +24,11 @@ const Logo = ({ className = "", size = "normal", showText = false }) => {
         className={`${currentSize.class} transition-transform duration-300 group-hover:scale-[1.02]`}
       />
       {showText && (
-        <div className="flex flex-col">
-          <span className="text-h4 font-bold font-display tracking-widest text-gold-gradient uppercase leading-none">
+        <div className="hidden md:flex flex-col">
+          <span className="text-xs sm:text-sm font-bold font-display tracking-widest text-gold-gradient uppercase leading-none">
             S.KUMAR
           </span>
-          <span className="text-label font-medium tracking-widest text-amber-300/80 uppercase leading-tight font-body mt-0.5">
+          <span className="text-[9px] sm:text-[10px] font-medium tracking-widest text-amber-300/80 uppercase leading-tight font-body mt-0.5">
             Light & Flower Decor
           </span>
         </div>
