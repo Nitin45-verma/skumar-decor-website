@@ -74,7 +74,7 @@ function App() {
               zIndex={10}
             />
           </div>
-          <CustomCursor />
+          {/* <CustomCursor /> */}
           <SplashCursor
             SIM_RESOLUTION={64}
             DYE_RESOLUTION={512}
