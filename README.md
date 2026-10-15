@@ -62,7 +62,7 @@ S.Kumar Light and Flower Decoration provides premium lighting and floral decorat
 
 ```bash
 # Clone the repository
-git clone <your-repository-url>
+git clone https://github.com/Nitin45-verma/S.KUMAR-Light-and-Flower-Decoration.git
 cd skumar-decor
 
 # Install dependencies
