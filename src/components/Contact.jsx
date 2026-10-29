@@ -1,4 +1,4 @@
-import React, { useState, lazy, Suspense } from 'react';
+﻿import React, { useState, lazy, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, MapPin, Calendar, User, MessageSquare, Send, CheckCircle2, Clock, Check, MessageCircle, Navigation, ExternalLink } from 'lucide-react';
 import { businessInfo } from '../data/content';
@@ -116,7 +116,7 @@ const Contact = () => {
             />
 
             <p className="mt-2 text-body font-body text-slate-300 font-light">
-              Make every special occasion even more special with our custom lighting & flower decor across Khatipura & Jaipur.
+              Make every special occasion even more special with our custom lighting & flower decor across Sanganer & Jaipur.
             </p>
           </div>
         </div>

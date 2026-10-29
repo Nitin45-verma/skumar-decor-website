@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'framer-motion';
 import { Lightbulb, Flower2, Sparkles, Music, Crown, Tent, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { services, businessInfo } from '../data/content';
@@ -62,7 +62,7 @@ const Services = () => {
                   <div className="relative h-64 w-full overflow-hidden bg-purple-900 border-b border-amber-500/20 aspect-[4/3]">
                     <img
                       src={service.image}
-                      alt={`${service.title} - S.Kumar Light Decoration Khatipura Jaipur`}
+                      alt={`${service.title} - S.Kumar Light Decoration Sanganer Jaipur`}
                       width={600}
                       height={400}
                       loading="lazy"

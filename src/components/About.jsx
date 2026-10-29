@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+﻿import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { MapPin, CheckCircle2, Star } from 'lucide-react';
 import { businessInfo } from '../data/content';
@@ -111,10 +111,10 @@ const About = () => {
 
             {/* Main Image Frame */}
             <div className="relative rounded-2xl overflow-hidden border border-amber-400/40 shadow-2xl glass-card group z-10">
-              {/* Top-Left Floating Badge: Khatipura, Jaipur */}
+              {/* Top-Left Floating Badge: Sanganer, Jaipur */}
               <div className="absolute top-4 left-4 z-20 flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-purple-950/85 backdrop-blur-md border border-amber-400/40 text-amber-300 text-xs font-bold font-sans shadow-md">
                 <MapPin className="w-3.5 h-3.5 text-amber-400" />
-                <span>Khatipura, Jaipur</span>
+                <span>Sanganer, Jaipur</span>
               </div>
 
               {/* Top-Right Floating Badge: 5 Stars */}
@@ -143,7 +143,7 @@ const About = () => {
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-amber-300 font-sans">
-                    Khatipura, Jaipur
+                    Sanganer, Jaipur
                   </h4>
                   <p className="text-xs text-slate-200 font-hindi mt-0.5 font-medium">
                     वेडिंग लाइटिंग व फ्लावर डेकोरेशन
@@ -174,7 +174,7 @@ const About = () => {
               data-cursor="link"
             >
               <MapPin className="w-4 h-4 text-amber-400 shrink-0" />
-              <span className="underline decoration-amber-500/40 underline-offset-4">KHATIPURA, JAIPUR, JAIPUR, RAJASTHAN</span>
+              <span className="underline decoration-amber-500/40 underline-offset-4">Sanganer, Jaipur, JAIPUR, RAJASTHAN</span>
             </a>
 
             <h3 className="text-2xl sm:text-3xl font-normal font-serif text-white leading-snug">

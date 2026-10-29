@@ -1,4 +1,4 @@
-import { useRef, useEffect, useCallback, useState } from 'react';
+﻿import { useRef, useEffect, useCallback, useState } from 'react';
 import { gsap } from 'gsap';
 import './MagicBento.css';
 
@@ -11,7 +11,7 @@ const defaultCardData = [
   {
     color: 'rgba(25, 9, 45, 0.85)',
     title: '15+ Years Experience (वर्षों का अनुभव)',
-    description: 'Serving Khatipura & Jaipur with premier lighting and flower decoration excellence since 2010.',
+    description: 'Serving Sanganer & Jaipur with premier lighting and flower decoration excellence since 2010.',
     label: 'Trust & Heritage'
   },
   {
@@ -40,8 +40,8 @@ const defaultCardData = [
   },
   {
     color: 'rgba(25, 9, 45, 0.85)',
-    title: 'Jaipur & Khatipura Special (स्थानीय पसंदीदा)',
-    description: 'Top rated local decoration provider in Khatipura, Vaishali Nagar, and all around Jaipur city.',
+    title: 'Jaipur & Sanganer Special (स्थानीय पसंदीदा)',
+    description: 'Top rated local decoration provider in Sanganer, Vaishali Nagar, and all around Jaipur city.',
     label: 'Local Leader'
   }
 ];

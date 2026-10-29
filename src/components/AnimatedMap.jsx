@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+﻿import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Navigation, ExternalLink, Layers, Copy, Check, Minimize2, Maximize2, Compass } from 'lucide-react';
 import { businessInfo } from '../data/content';
@@ -55,7 +55,7 @@ const AnimatedMap = () => {
               </div>
 
               <p className="text-xs text-slate-300 font-sans mt-0.5">
-                QM5X+WP6, Kishanpura at Khatipura, Jaipur, Rajasthan - {businessInfo.pincode}
+                Kapurawala, Sanganer, Jaipur, Rajasthan - {businessInfo.pincode}
               </p>
             </div>
           </div>

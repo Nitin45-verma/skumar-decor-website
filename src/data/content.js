@@ -1,4 +1,4 @@
-// ── Local Gallery & Asset Imports ───────────────────────────────────────────
+﻿// ── Local Gallery & Asset Imports ───────────────────────────────────────────
 import imgBanner from '../assets/banner.webp';
 import imgGallery1 from '../assets/gallery/gallery1.webp';
 import imgGallery2 from '../assets/gallery/gallery2.webp';
@@ -17,9 +17,9 @@ export const businessInfo = {
   subTitle: "Light and Flower Decoration",
   plusCode: "QM5X+WP6",
   pincode: "302029",
-  address: "QM5X+WP6, Kishanpura at Khatipura, Jaipur, Rajasthan - 302029",
-  shortLocation: "Khatipura, Jaipur",
-  websiteUrl: "https://skumar-decor.vercel.app/",
+  address: "Kapurawala, Sanganer, Jaipur, Rajasthan - 302029",
+  shortLocation: "Sanganer, Jaipur",
+  websiteUrl: "https://www.skumarevent.in/",
   googleMapsUrl: "https://maps.app.goo.gl/XfbF4eXzsQiUiywr9",
   taglineHindi: "आपके हर खास मौके को बनाएं और भी खास, हमारी लाइटिंग से दें एक नई पहचान!",
   taglineEnglish: "Make every special occasion even more special — give it a new identity with our lighting",
@@ -235,7 +235,7 @@ export const testimonials = [
   {
     id: 1,
     name: "सुरेश & सुनीता शर्मा (Suresh & Sunita Sharma)",
-    location: "किशनपुरा, खातीपुरा, जयपुर (Kishanpura at Khatipura, Jaipur)",
+    location: "कपुरावाला, सांगानेर, जयपुर (Kapurawala, Sanganer, Jaipur)",
     rating: 5,
     event: "Wedding Lighting & Mandap Setup",
     review: "S.Kumar Light and Flower Decoration ने हमारी बेटी की शादी में जो लाइटिंग और फ्लावर डेकोरेशन की, उसने पूरे मैरिज गार्डन को किसी महल जैसा बना दिया! समय पर काम पूरा किया और रेट्स भी बेहद उचित थे।",
@@ -244,7 +244,7 @@ export const testimonials = [
   {
     id: 2,
     name: "विक्रम सिंह राठौड़ (Vikram Singh Rathore)",
-    location: "खातीपुरा रोड, जयपुर (Khatipura Road, Jaipur)",
+    location: "सांगानेर, जयपुर (Sanganer Road, Jaipur)",
     rating: 5,
     event: "Grand Sangeet & DJ Setup",
     review: "डीजे साउंड की क्वालिटी और स्टेज की लाइटिंग एकदम 5-स्टार थी। दुल्हन एंट्री का कोल्ड पायरो शो देखकर सब मेहमान खुश हो गए। S.Kumar जी की टीम का काम वाकई तारीफ के काबिल है!",
@@ -262,7 +262,7 @@ export const testimonials = [
   {
     id: 4,
     name: "महेश कुमार सैनी (Mahesh Kumar Saini)",
-    location: "किशनपुरा, जयपुर (Kishanpura, Jaipur)",
+    location: "सांगानेर, जयपुर (Kishanpura, Jaipur)",
     rating: 5,
     event: "Tent & Venue Illumination",
     review: "घर और रिसॉर्ट की पूरी लाइटिंग S.Kumar Light and Flower Decoration ने की। रात में पूरी बिल्डिंग जगमगा रही थी। जयपुर में इवेंट लाइटिंग के लिए 100% बेस्ट टीम!",

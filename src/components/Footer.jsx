@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Phone, MapPin, ChevronRight } from 'lucide-react';
 import { businessInfo, services } from '../data/content';
 import Logo from './Logo';
@@ -18,7 +18,7 @@ const Footer = () => {
             </p>
 
             <p className="text-body-sm text-slate-300 leading-relaxed max-w-md font-body font-light">
-              Specializing in luxury wedding lighting, crystal chandeliers, fresh flower decorations, grand stage backdrops, line-array DJ sound, and waterproof tent setups across Khatipura & Jaipur.
+              Specializing in luxury wedding lighting, crystal chandeliers, fresh flower decorations, grand stage backdrops, line-array DJ sound, and waterproof tent setups across Sanganer & Jaipur.
             </p>
           </div>
 

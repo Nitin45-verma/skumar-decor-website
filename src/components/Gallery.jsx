@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ZoomIn, Phone, Layers, LayoutGrid, Sparkles, ChevronDown } from 'lucide-react';
 import { galleryCategories, galleryItems, businessInfo } from '../data/content';
@@ -433,7 +433,7 @@ const Gallery = () => {
                         S.Kumar Light & Flower Decor
                       </h4>
                       <p className="text-xs text-slate-300">
-                        Khatipura, Jaipur • Custom Royal Setup
+                        Sanganer, Jaipur • Custom Royal Setup
                       </p>
                     </div>
                   </div>
