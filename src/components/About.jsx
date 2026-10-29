@@ -74,7 +74,7 @@ const About = () => {
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-amber-500/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Top Header Section (Centered) */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-semibold uppercase tracking-widest text-amber-300 font-sans block mb-3">
@@ -86,13 +86,13 @@ const About = () => {
           </h2>
 
           <p className="mt-4 text-base sm:text-lg text-amber-200/90 font-hindi max-w-2xl mx-auto italic font-medium">
-            "आपके हर खास मौके को बनाएं और भी खास, हमारी सजावट से दें एक नई पहचान!"
+            "आपके हर खास मौके को बनाएं और भी खास, हमारी सजावट से दें एक नई पहचान!."
           </p>
         </div>
 
         {/* Two Column Layout matching screenshot */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          
+
           {/* Left Column: Framed Image with Gold Accents matching exact screenshot */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
